@@ -17,6 +17,5 @@ namespace aautil.WinForm
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-
     }
 }

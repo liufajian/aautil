@@ -16,5 +16,12 @@ namespace aautil.WinForm
         {
             InitializeComponent();
         }
+
+        private void menuJsonView_Click(object sender, EventArgs e)
+        {
+            var form = MdiChildren.OfType<EPocalipse.Json.JsonView.MainForm>().FirstOrDefault()
+               ?? new EPocalipse.Json.JsonView.MainForm { MdiParent = this };
+            form.Show();
+        }
     }
 }
