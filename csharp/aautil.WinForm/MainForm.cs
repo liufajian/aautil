@@ -22,6 +22,15 @@ namespace aautil.WinForm
             var form = MdiChildren.OfType<EPocalipse.Json.JsonView.MainForm>().FirstOrDefault()
                ?? new EPocalipse.Json.JsonView.MainForm { MdiParent = this };
             form.Show();
+            form.BringToFront();
+        }
+
+        private void menuScintilla_Click(object sender, EventArgs e)
+        {
+            var form = MdiChildren.OfType<YLConfigTool.Form1>().FirstOrDefault()
+               ?? new YLConfigTool.Form1 { MdiParent = this };
+            form.Show();
+            form.BringToFront();
         }
     }
 }
