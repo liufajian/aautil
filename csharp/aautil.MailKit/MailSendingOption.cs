@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace aautil.MailKit
+namespace AAUtil.MailKit
 {
     public class MailSendingOption
     {

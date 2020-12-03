@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{400B7E49-8D52-43AE-8C0A-2F6D2B8962F3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>aautil.WinForm</RootNamespace>
-    <AssemblyName>aautil.WinForm</AssemblyName>
+    <RootNamespace>AAUtil.WinForm</RootNamespace>
+    <AssemblyName>AAUtil.WinForm</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -104,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

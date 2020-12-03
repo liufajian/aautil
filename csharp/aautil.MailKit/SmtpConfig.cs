@@ -1,4 +1,4 @@
-﻿namespace aautil.MailKit
+﻿namespace AAUtil.MailKit
 {
     /// <summary>
     /// stmp服务器配置

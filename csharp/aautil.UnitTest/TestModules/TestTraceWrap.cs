@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace aautil.UnitTest.TestModules
+namespace AAUtil.UnitTest.TestModules
 {
     [TestClass]
     public class TestTraceWrap
@@ -8,7 +8,7 @@ namespace aautil.UnitTest.TestModules
         [TestMethod]
         public void Test()
         {
-            var wrap = new aautil.TraceWrap("单元测试");
+            var wrap = new AAUtil.TraceWrap("单元测试");
             wrap.WriteLine(null);
             wrap.WriteData(null, "测试数据");
         }

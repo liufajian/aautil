@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace aautil
+namespace AAUtil.Converts
 {
     /// <summary>
     /// Converting (plain old) C# objects to dictionaries is easy with Reflection

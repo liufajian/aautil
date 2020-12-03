@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace aautil.WinForm
+namespace AAUtil.WinForm
 {
     static class Program
     {

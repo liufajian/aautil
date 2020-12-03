@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aautil", "aautil\aautil.csproj", "{C2922F52-A97E-45DB-8547-FA96313D725C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AAUtil", "aautil\AAUtil.csproj", "{C2922F52-A97E-45DB-8547-FA96313D725C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aautil.UnitTest", "aautil.UnitTest\aautil.UnitTest.csproj", "{826EC0C2-F93E-4DEE-9127-03F504C6C2C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAUtil.UnitTest", "aautil.UnitTest\AAUtil.UnitTest.csproj", "{826EC0C2-F93E-4DEE-9127-03F504C6C2C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aautil.WinForm", "aautil.WinForm\aautil.WinForm.csproj", "{400B7E49-8D52-43AE-8C0A-2F6D2B8962F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAUtil.WinForm", "aautil.WinForm\AAUtil.WinForm.csproj", "{400B7E49-8D52-43AE-8C0A-2F6D2B8962F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aautil.MailKit", "aautil.MailKit\aautil.MailKit.csproj", "{FC289A8E-30B8-4F16-B1AB-082F8B5CEF5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AAUtil.MailKit", "aautil.MailKit\AAUtil.MailKit.csproj", "{FC289A8E-30B8-4F16-B1AB-082F8B5CEF5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

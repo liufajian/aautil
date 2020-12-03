@@ -1,4 +1,4 @@
-﻿namespace aautil.WinForm
+﻿namespace AAUtil.WinForm
 {
     partial class MainForm
     {

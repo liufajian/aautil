@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net;
 using SecureSocketOptions = MailKit.Security.SecureSocketOptions;
 
-namespace aautil.MailKit
+namespace AAUtil.MailKit
 {
     /// <summary>
     /// 邮件发送类
