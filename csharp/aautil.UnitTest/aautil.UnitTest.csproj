@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestModules\Refletion\TypeUtilTest2.cs" />
     <Compile Include="TestModules\Refletion\TypeUtilTest.cs" />
     <Compile Include="TestModules\TestTraceWrap.cs" />
     <Compile Include="UnitTest1.cs" />

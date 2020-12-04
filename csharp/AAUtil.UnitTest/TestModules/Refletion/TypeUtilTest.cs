@@ -46,6 +46,8 @@ namespace AAUtil.UnitTest.TestModules.Refletion
 
             Assert.IsTrue(new GenericFooImplementor<string>().GetType().InheritsOrImplements(typeof(IGenericFooInterface<>)));
 
+            Assert.IsTrue(new GenericFooImplementor<string>().GetType().InheritsOrImplements(typeof(GenericFooImplementor<>)));
+
             Assert.IsFalse(new GenericFooImplementor<string>().GetType().InheritsOrImplements(typeof(IGenericFooInterface<int>)));
 
             Assert.IsTrue(typeof(FooImplementor).InheritsOrImplements(typeof(FooBase)));
