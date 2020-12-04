@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAUtil.WinForm", "aautil.Wi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AAUtil.MailKit", "aautil.MailKit\AAUtil.MailKit.csproj", "{FC289A8E-30B8-4F16-B1AB-082F8B5CEF5C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AAUtil.EFCore", "AAUtil.EFCore\AAUtil.EFCore.csproj", "{375B636D-7113-4AC0-8A77-8D7B5C80C079}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{FC289A8E-30B8-4F16-B1AB-082F8B5CEF5C}.Release|x64.Build.0 = Release|Any CPU
 		{FC289A8E-30B8-4F16-B1AB-082F8B5CEF5C}.Release|x86.ActiveCfg = Release|Any CPU
 		{FC289A8E-30B8-4F16-B1AB-082F8B5CEF5C}.Release|x86.Build.0 = Release|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Debug|x64.Build.0 = Debug|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Debug|x86.Build.0 = Debug|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Release|x64.ActiveCfg = Release|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Release|x64.Build.0 = Release|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Release|x86.ActiveCfg = Release|Any CPU
+		{375B636D-7113-4AC0-8A77-8D7B5C80C079}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
