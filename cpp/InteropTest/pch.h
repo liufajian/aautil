@@ -21,7 +21,10 @@
 #endif
 
 //! 单字符定义，可用于定义其他类型
-typedef char				TAPICHAR;
+typedef char	TAPICHAR;
+
+//! 长度为70的字符串
+typedef char	TAPISTR_70[71];
 
 //=============================================================================
 /**
@@ -62,7 +65,8 @@ const TAPIYNFLAG			APIYNFLAG_NO = 'N';
 
 enum class EventType
 {
-
+	Test1 = 1,
+	Test2 = 2,
 };
 
 #ifdef __cplusplus
@@ -72,3 +76,54 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+//! 客户持仓盈亏
+struct TapAPIPositionProfit
+{
+	TAPISTR_70					PositionNo;						///< 本地持仓号，服务器编写
+	TAPIUINT32					PositionStreamId;				///< 持仓流号
+	TAPIREAL64					PositionProfit;					///< 持仓盈亏
+	TAPIREAL64					LMEPositionProfit;				///< LME持仓盈亏
+	TAPIREAL64					OptionMarketValue;				///< 期权市值
+	TAPIREAL64					CalculatePrice;					///< 计算价格
+	TAPIREAL64					FloatingPL;						///< 逐笔浮盈
+};
+
+//! 客户持仓盈亏通知
+struct TapAPIPositionProfitNotice
+{
+	TAPIYNFLAG			IsLast;					///< 是否最后一包
+	TapAPIPositionProfit* Data;					///< 客户持仓盈亏信息
+};
+
+//! 客户持仓盈亏通知M
+struct TapAPIPositionProfitNoticeM
+{
+	TAPIYNFLAG	IsLast;							///< 是否最后一包
+	TAPISTR_70	PositionNo;						///< 本地持仓号，服务器编写
+	TAPIUINT32	PositionStreamId;				///< 持仓流号
+	TAPIREAL64	PositionProfit;					///< 持仓盈亏
+	TAPIREAL64	LMEPositionProfit;				///< LME持仓盈亏
+	TAPIREAL64	OptionMarketValue;				///< 期权市值
+	TAPIREAL64	CalculatePrice;					///< 计算价格
+	TAPIREAL64	FloatingPL;						///< 逐笔浮盈
+};
+
+struct TempStruct
+{
+	char* str;
+	int num;
+
+	// Note the strdup. You don't know the source of str.
+	// For example if the source is "Foo", then you can't free it.
+	// Using strdup solves this problem.
+	inline explicit TempStruct(const char* str, int num)
+		: str(_strdup(str)), num(num)
+	{
+	}
+
+	~TempStruct()
+	{
+		free(str);
+	}
+};

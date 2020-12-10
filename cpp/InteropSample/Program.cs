@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InteropSample
 {
@@ -10,8 +6,10 @@ namespace InteropSample
     {
         static void Main(string[] args)
         {
-            var test = new InteropTest();
-            Console.WriteLine("GetVersion:" + test.GetVersion());
+            Console.WriteLine("进程:" + (Environment.Is64BitProcess ? "x64" : "x86"));
+
+            new InteropTest().Test().TestAPI();
+
             Console.Read();
         }
     }

@@ -2,6 +2,10 @@
 //
 
 #include <iostream>
+#include "Interop.h"
+#include <string>
+
+using namespace std;
 
 int main()
 {
@@ -15,5 +19,12 @@ int main()
 	};
 
 	printf("%llu\n", sizeof(struct s2));
+
+	TapAPIPositionProfitNoticeM* ttt = TestTapAPIPositionProfitNotice();
+
+	string str = string(1, ttt->IsLast);
+
+	printf("isLast:%s,PositionNo:%s,PositionStreamId:%u,PositionProfit:%f,FloatingPL:%f \n", str.c_str(), ttt->PositionNo, ttt->PositionStreamId, ttt->PositionProfit, ttt->FloatingPL);
+
 	system("pause");
 }
