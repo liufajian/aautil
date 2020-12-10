@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 //from: https://www.cnblogs.com/kean0048/p/11060559.html
@@ -123,6 +124,29 @@ private:
 		printf_s("char*转char: %s\n", arrc);   //打印char[]类型数据
 	}
 
+	//char转string
+	static void CharToString() {
+		//1. 使用string()构造函数方法
+		char c = 'F';
+		string s = string(1, c);
+		cout << "char to string:" << s << endl;
+
+		//2. 使用stringstream字符流
+		char c1 = 'F';
+		stringstream ss;
+		ss << c1;
+		string s2;
+		ss >> s2;
+		cout << "char to string:" << s2 << endl;
+
+		//3. 使用springf()函数
+		char c2 = 'F';
+		char s3[10];
+		sprintf_s(s3, "%c", c2);
+		string s4 = string(s3);
+		cout << "char to string:" << s4 << endl;
+	}
+
 public:
 	static void Sample() {
 
@@ -143,6 +167,9 @@ public:
 
 		//char* to char[]
 		CharPtrToCharArray();
+
+		//char to string
+		CharToString();
 	}
 
 	static void Sample2() {
