@@ -49,8 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestModules\Refletion\TypeUtilTest2.cs" />
-    <Compile Include="TestModules\Refletion\TypeUtilTest.cs" />
+    <Compile Include="TestModules\BaseTests\CompilerTest.cs" />
+    <Compile Include="TestModules\BaseTests\DataConvertTest.cs" />
+    <Compile Include="TestModules\ConvertTests\DateConvertTest.cs" />
+    <Compile Include="TestModules\RefletionTests\TypeUtilTest2.cs" />
+    <Compile Include="TestModules\RefletionTests\TypeUtilTest.cs" />
     <Compile Include="TestModules\TestTraceWrap.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

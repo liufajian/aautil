@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Reflection;
 
-namespace AAUtil.UnitTest.TestModules.Refletion
+namespace AAUtil.UnitTest.TestModules.RefletionTests
 {
     [TestClass]
     public class TypeUtilTest
