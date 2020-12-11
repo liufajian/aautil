@@ -79,5 +79,28 @@ namespace AAUtil.Converts
 
             return DateTime.TryParseExact(new string(chArr), "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
         }
+
+        /// <summary>
+        /// 整数解析成日期
+        /// </summary>
+        public static bool TryParseIntToDate(int number, out DateTime dt)
+        {
+            dt = DateTime.MinValue;
+
+            var year = number / 10000;
+            if (year < 1) return false;
+
+            number %= 10000;
+
+            var month = number / 100;
+            if (month < 1 || month > 12) return false;
+
+            var day = number % 100;
+            if (day < 1 || day > 31) return false;
+
+            dt = new DateTime(year, month, day);
+
+            return true;
+        }
     }
 }
