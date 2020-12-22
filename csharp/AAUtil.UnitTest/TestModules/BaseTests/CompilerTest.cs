@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace AAUtil.UnitTest.TestModules.BaseTests
 {
@@ -8,7 +9,7 @@ namespace AAUtil.UnitTest.TestModules.BaseTests
         [TestMethod]
         public void TestCallerName()
         {
-            var name= CallerName();
+            var name = CallerName();
 
             Assert.AreEqual(name, nameof(TestCallerName));
 
@@ -20,6 +21,28 @@ namespace AAUtil.UnitTest.TestModules.BaseTests
         private string CallerName([System.Runtime.CompilerServices.CallerMemberName] string callerName = "")
         {
             return callerName;
+        }
+
+        [TestMethod]
+        public void TestActionName()
+        {
+            Action a = TestAction;
+
+            Assert.AreEqual(a.Method.Name, nameof(TestAction));
+
+            Action a2 = () => TestAction2("ccc");
+
+            Assert.AreEqual(a2.Method.Name, nameof(TestAction2));
+        }
+
+        private void TestAction()
+        {
+            Console.WriteLine(nameof(TestAction));
+        }
+
+        private void TestAction2(string input)
+        {
+            Console.WriteLine(input);
         }
     }
 }

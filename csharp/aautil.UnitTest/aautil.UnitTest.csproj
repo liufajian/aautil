@@ -52,6 +52,7 @@
     <Compile Include="TestModules\BaseTests\CompilerTest.cs" />
     <Compile Include="TestModules\BaseTests\DataConvertTest.cs" />
     <Compile Include="TestModules\ConvertTests\DateConvertTest.cs" />
+    <Compile Include="TestModules\RefletionTests\ExpressionUtilTest.cs" />
     <Compile Include="TestModules\RefletionTests\TypeUtilTest2.cs" />
     <Compile Include="TestModules\RefletionTests\TypeUtilTest.cs" />
     <Compile Include="TestModules\TestTraceWrap.cs" />
