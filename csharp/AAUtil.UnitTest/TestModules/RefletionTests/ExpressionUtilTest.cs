@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace AAUtil.UnitTest.TestModules.RefletionTests
 {
@@ -93,6 +94,27 @@ namespace AAUtil.UnitTest.TestModules.RefletionTests
 
             ccSetter(model, new InnerTestModel2 { TTT = "bbbbb" });
             Assert.IsNotNull(model.Model2);
+        }
+
+        [TestMethod]
+        public void Test3()
+        {
+            var model = new InnerTestModel
+            {
+                AA = "测试",
+                BB = 111,
+                Model2 = new InnerTestModel2 { TTT = "hao" }
+            };
+
+            Expression<Func<InnerTestModel, object>> member = m => m.Model2;
+            var memberBody = member.Body as MemberExpression;
+            var propInfo = (PropertyInfo)memberBody.Member;
+            var lambda = Expression.Lambda<Action<InnerTestModel>>(Expression.Assign(memberBody,
+                Expression.Convert(Expression.Constant(null), propInfo.PropertyType)), member.Parameters);
+            var action = lambda.Compile();
+            action(model);
+
+            Assert.IsNull(model.Model2);
         }
 
         class InnerTestModel
