@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Linq;
+using System.Linq.Expressions;
 
 namespace System.Reflection
 {
@@ -9,6 +10,10 @@ namespace System.Reflection
     {
         public static Func<TObject, TProperty> GetPropGetter<TObject, TProperty>(string propertyName)
         {
+            if (string.IsNullOrWhiteSpace(propertyName))
+            {
+                throw new ArgumentException($"“{nameof(propertyName)}”不能为 Null 或空白", nameof(propertyName));
+            }
             var value = Expression.Parameter(typeof(TObject), "value");
             var prop = Expression.Property(value, propertyName);
             return Expression.Lambda<Func<TObject, TProperty>>(prop, value).Compile();
@@ -16,6 +21,10 @@ namespace System.Reflection
 
         public static Func<TEntity, TProperty> GetPropGetter<TEntity, TProperty>(Expression<Func<TEntity, TProperty>> property)
         {
+            if (property is null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
             var prop = GetProperty(property);
             var obj = Expression.Parameter(typeof(TEntity), "instance");
             var body = Expression.Call(obj, prop.GetGetMethod());
@@ -25,6 +34,10 @@ namespace System.Reflection
 
         public static Action<TObject, TProperty> GetPropSetter<TObject, TProperty>(string propertyName)
         {
+            if (string.IsNullOrWhiteSpace(propertyName))
+            {
+                throw new ArgumentException($"“{nameof(propertyName)}”不能为 Null 或空白", nameof(propertyName));
+            }
             var obj = Expression.Parameter(typeof(TObject));
             var value = Expression.Parameter(typeof(TProperty), propertyName);
             var prop = Expression.Property(obj, propertyName);
@@ -36,6 +49,10 @@ namespace System.Reflection
 
         public static Action<TEntity, TProperty> GetPropSetter<TEntity, TProperty>(Expression<Func<TEntity, TProperty>> property)
         {
+            if (property is null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
             var pinfo = GetProperty(property);
             var instance = Expression.Parameter(typeof(TEntity), "instance");
             var para = Expression.Parameter(typeof(TProperty), "param");
@@ -46,6 +63,10 @@ namespace System.Reflection
 
         public static Action<TEntity, object> GetPropSetter<TEntity>(string propertyName, Type propertyType)
         {
+            if (string.IsNullOrWhiteSpace(propertyName))
+            {
+                throw new ArgumentException($"“{nameof(propertyName)}”不能为 Null 或空白", nameof(propertyName));
+            }
             var obj = Expression.Parameter(typeof(TEntity), propertyName);
             var value = Expression.Parameter(typeof(object));
             var propExp = Expression.Property(obj, propertyName);
@@ -55,16 +76,22 @@ namespace System.Reflection
 
         public static Action<TEntity, object> GetPropSetter<TEntity>(Expression<Func<TEntity, object>> property)
         {
-            var prop = GetProperty(property);
-            var obj = Expression.Parameter(typeof(TEntity), prop.Name);
+            if (property is null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
             var value = Expression.Parameter(typeof(object));
-            var propExp = Expression.Property(obj, prop.Name);
-            var assignExp = Expression.Assign(propExp, Expression.Convert(value, prop.PropertyType));
-            return Expression.Lambda<Action<TEntity, object>>(assignExp, obj, value).Compile();
+            var targetExp = property.Body is UnaryExpression ? ((UnaryExpression)property.Body).Operand : property.Body;
+            return Expression.Lambda<Action<TEntity, object>>(
+                Expression.Assign(targetExp, Expression.Convert(value, targetExp.Type)), property.Parameters.Single(), value).Compile();
         }
 
         public static PropertyInfo GetProperty<TEntity, TProperty>(Expression<Func<TEntity, TProperty>> expression)
         {
+            if (expression is null)
+            {
+                throw new ArgumentNullException(nameof(expression));
+            }
             var member = GetMemberExpression(expression).Member;
             var property = member as PropertyInfo;
             if (property == null)
@@ -100,7 +127,6 @@ namespace System.Reflection
         {
             var body = Expression.New(typeof(TEntity));
             var lambda = Expression.Lambda<Func<TEntity>>(body);
-
             return lambda.Compile();
         }
     }

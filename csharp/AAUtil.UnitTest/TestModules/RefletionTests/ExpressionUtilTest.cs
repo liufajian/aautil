@@ -1,11 +1,8 @@
-﻿using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace AAUtil.UnitTest.TestModules.RefletionTests
 {
@@ -117,6 +114,43 @@ namespace AAUtil.UnitTest.TestModules.RefletionTests
             Assert.IsNull(model.Model2);
         }
 
+        [TestMethod]
+        public void Test4()
+        {
+            var model = new InnerTestModel
+            {
+                AA = "测试",
+                BB = 111,
+                Model2 = new InnerTestModel2 { TTT = "hao" },
+                Models = new[] { 
+                    new InnerTestModel2{ TTT="111"},
+                    new InnerTestModel2{ TTT="222"}
+                }
+            };
+
+            Expression<Func<InnerTestModel, object>> expression = obj => obj.Models[1].TTT;
+
+            AssignNewValue(model,expression, "new-111");
+
+            Assert.AreEqual(model.Models[1].TTT, "new-111");
+        }
+
+        private static void AssignNewValue(InnerTestModel obj, Expression<Func<InnerTestModel, object>> expression, object value)
+        {
+            var valueParameterExpression = Expression.Parameter(typeof(object));
+            var targetExpression = expression.Body is UnaryExpression ? ((UnaryExpression)expression.Body).Operand : expression.Body;
+
+            var newValue = Expression.Parameter(expression.Body.Type);
+            var assign = Expression.Lambda<Action<InnerTestModel, object>>
+                        (
+                            Expression.Assign(targetExpression, Expression.Convert(valueParameterExpression, targetExpression.Type)),
+                            expression.Parameters.Single(),
+                            valueParameterExpression
+                        );
+
+            assign.Compile().Invoke(obj, value);
+        }
+
         class InnerTestModel
         {
             public string AA { get; set; }
@@ -124,6 +158,8 @@ namespace AAUtil.UnitTest.TestModules.RefletionTests
             public int BB { get; set; }
 
             public InnerTestModel2 Model2 { get; set; }
+
+            public InnerTestModel2[] Models { get; set; }
 
             public override string ToString()
             {
