@@ -1,4 +1,4 @@
-﻿namespace YLConfigTool
+﻿namespace AAUtil.WinForm.Editor
 {
     partial class Form1
     {

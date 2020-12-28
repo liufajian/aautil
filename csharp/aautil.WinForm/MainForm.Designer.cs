@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuJsonView = new System.Windows.Forms.ToolStripMenuItem();
             this.menuScintilla = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCaptcha = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +41,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(21, 21);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuJsonView,
-            this.menuScintilla});
+            this.menuScintilla,
+            this.menuCaptcha});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1055, 31);
@@ -50,16 +52,23 @@
             // menuJsonView
             // 
             this.menuJsonView.Name = "menuJsonView";
-            this.menuJsonView.Size = new System.Drawing.Size(94, 25);
+            this.menuJsonView.Size = new System.Drawing.Size(94, 27);
             this.menuJsonView.Text = "JsonView";
             this.menuJsonView.Click += new System.EventHandler(this.menuJsonView_Click);
             // 
             // menuScintilla
             // 
             this.menuScintilla.Name = "menuScintilla";
-            this.menuScintilla.Size = new System.Drawing.Size(82, 25);
+            this.menuScintilla.Size = new System.Drawing.Size(82, 27);
             this.menuScintilla.Text = "Scintilla";
             this.menuScintilla.Click += new System.EventHandler(this.menuScintilla_Click);
+            // 
+            // menuCaptcha
+            // 
+            this.menuCaptcha.Name = "menuCaptcha";
+            this.menuCaptcha.Size = new System.Drawing.Size(87, 27);
+            this.menuCaptcha.Text = "Captcha";
+            this.menuCaptcha.Click += new System.EventHandler(this.menuCaptcha_Click);
             // 
             // MainForm
             // 
@@ -69,7 +78,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -86,6 +95,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuJsonView;
         private System.Windows.Forms.ToolStripMenuItem menuScintilla;
+        private System.Windows.Forms.ToolStripMenuItem menuCaptcha;
     }
 }
 

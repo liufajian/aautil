@@ -27,8 +27,16 @@ namespace AAUtil.WinForm
 
         private void menuScintilla_Click(object sender, EventArgs e)
         {
-            var form = MdiChildren.OfType<YLConfigTool.Form1>().FirstOrDefault()
-               ?? new YLConfigTool.Form1 { MdiParent = this };
+            var form = MdiChildren.OfType<Editor.Form1>().FirstOrDefault()
+               ?? new Editor.Form1 { MdiParent = this };
+            form.Show();
+            form.BringToFront();
+        }
+
+        private void menuCaptcha_Click(object sender, EventArgs e)
+        {
+            var form = MdiChildren.OfType<Security.FormCaptcha>().FirstOrDefault()
+               ?? new Security.FormCaptcha { MdiParent = this };
             form.Show();
             form.BringToFront();
         }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace YLConfigTool
+namespace AAUtil.WinForm.Editor
 {
     public partial class Form1 : Form
     {
