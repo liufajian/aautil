@@ -25,6 +25,9 @@ namespace InteropSample
         public delegate void TapQuoteAPIEvent(EventType type, int errorCode, TAPIYNFLAG isLast, IntPtr info);
 
         [DllImport(DllName, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr TestStringInOut([MarshalAs(UnmanagedType.AnsiBStr)] string str);
+
+        [DllImport(DllName, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern int GetVersion(StringBuilder buffer, int capacity);
 
         //-------------------------------------------------------

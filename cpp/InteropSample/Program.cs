@@ -8,7 +8,7 @@ namespace InteropSample
         {
             Console.WriteLine("进程:" + (Environment.Is64BitProcess ? "x64" : "x86"));
 
-            new InteropTest().Test().TestAPI();
+            new InteropTest().Test().TestStringInOut();
 
             Console.Read();
         }

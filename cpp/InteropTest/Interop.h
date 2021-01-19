@@ -3,9 +3,27 @@
 #include <string.h>
 #include "MyTestApi.h"
 
+using namespace std;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+	FTDC2C_API void* MYDECL TestStringInOut(const char* str) {
+
+		MyStringOut* ms = new MyStringOut();
+
+		string s1(str);
+		string* s = new string(s1 + " ni hao ma");
+		ms->str = s->c_str();
+
+		char* cc = new char[strlen(str) + 20];
+		strcpy_s(cc, strlen(cc) + 1, s->c_str());
+
+		ms->str = cc;
+
+		return ms;
+	}
 
 	FTDC2C_API void MYDECL GetVersion(char* buf, int n) {
 		const char* version = "Hello World";

@@ -66,8 +66,9 @@ namespace InteropSample
                     var dllPath = Path.Combine(dllFolder, obj.ResName);
                     if (!File.Exists(dllPath) || bytes.Length != new FileInfo(dllPath).Length)
                     {
-                        File.WriteAllBytes(dllPath, bytes);
+                        
                     }
+                    File.WriteAllBytes(dllPath, bytes);
                 }
 
                 installed = true;

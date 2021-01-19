@@ -32,6 +32,14 @@ namespace InteropSample
             return this;
         }
 
+        public InteropTest TestStringInOut()
+        {
+            var ptr = Interop.TestStringInOut("错误");
+            var str = Marshal.PtrToStructure<MyStringOut>(ptr);
+            Console.WriteLine("TestStringInOut:" + str);
+            return this;
+        }
+
         public InteropTest TestAPI()
         {
             new MyApiTest().Test();
@@ -82,6 +90,21 @@ namespace InteropSample
             {
                 return $"[TempStruct]str:{str},num:{num}";
             }
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public class MyStringOut
+    {
+        public string str;
+
+        public int errcode;
+
+        public string errinfo;
+
+        public override string ToString()
+        {
+            return $"str: {str}, errcode: {errcode}, errinfo: {errinfo}";
         }
     }
 }

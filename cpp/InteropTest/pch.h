@@ -127,3 +127,17 @@ struct TempStruct
 		free(str);
 	}
 };
+
+struct MyStringOut
+{
+	const char* str;
+
+	int errcode;
+
+	const char* errinfo;
+
+	explicit inline MyStringOut()
+		: str("111")
+		, errcode(1)
+		, errinfo("error") {}
+};
