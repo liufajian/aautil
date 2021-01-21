@@ -13,15 +13,18 @@ extern "C" {
 
 		MyStringOut* ms = new MyStringOut();
 
-		string s1(str);
+	/*	string s1(str);
 		string* s = new string(s1 + " ni hao ma");
 		ms->str = s->c_str();
 
 		char* cc = new char[strlen(str) + 20];
 		strcpy_s(cc, strlen(cc) + 1, s->c_str());
 
-		ms->str = cc;
+		ms->str = cc;*/
 
+		int n = 10;
+		string* s = new string("8888 " + to_string(n) + "  dfasfd");
+		ms->str = s->c_str();
 		return ms;
 	}
 

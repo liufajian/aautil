@@ -1,5 +1,10 @@
 #pragma once
 
+class PtrTest;
+
+//函数指针
+typedef void (PtrTest::* MyDelegate)(int code);
+
 ///请求错误
 struct UfxError {
 	int errcode;
@@ -53,6 +58,10 @@ public:
 		return &err;
 	};
 
+	void TestDelegate() {
+		DelegateProxy(&PtrTest::DelegateReal, 2333);
+	}
+
 private:
 	void InnerTest11(UfxError& err) {
 		err.errcode = 11;
@@ -67,5 +76,14 @@ private:
 		err.errcode = 5;
 		err.errmsg = "test5";
 	}
+
+	void DelegateProxy(MyDelegate dg, int code) {
+		(this->*dg)(code);
+	};
+
+	void DelegateReal(int code) {
+		puts("测试委托函数,code:");
+		puts(to_string(code).c_str());
+	};
 };
 

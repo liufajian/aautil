@@ -12,14 +12,17 @@ int main()
 	std::cout << "Hello World!\n";
 
 	CheckCheck cc(100);
-	cc.Test();
+	//cc.Test();
 
-	CheckCheck::isStringEmptyCheck();
+	//CheckCheck::isStringEmptyCheck();
 
 	StringConcat sc;
 	//sc.test();
 
 	//CharStringConvert::Sample();
+
+	PtrTest pt;
+	pt.TestDelegate();
 }
 
 void PtrTestTest() {
