@@ -67,6 +67,7 @@ enum class EventType
 {
 	Test1 = 1,
 	Test2 = 2,
+	Test3 = 3,
 };
 
 #ifdef __cplusplus
@@ -80,13 +81,21 @@ extern "C" {
 //! 客户持仓盈亏
 struct TapAPIPositionProfit
 {
-	TAPISTR_70					PositionNo;						///< 本地持仓号，服务器编写
+	const char* PositionNo;						///< 本地持仓号，服务器编写
 	TAPIUINT32					PositionStreamId;				///< 持仓流号
 	TAPIREAL64					PositionProfit;					///< 持仓盈亏
 	TAPIREAL64					LMEPositionProfit;				///< LME持仓盈亏
 	TAPIREAL64					OptionMarketValue;				///< 期权市值
 	TAPIREAL64					CalculatePrice;					///< 计算价格
 	TAPIREAL64					FloatingPL;						///< 逐笔浮盈
+
+	explicit inline TapAPIPositionProfit()
+		: PositionNo("")
+		, PositionStreamId(1)
+		, LMEPositionProfit(0)
+		, OptionMarketValue(0)
+		, CalculatePrice(0)
+		, FloatingPL(0) {}
 };
 
 //! 客户持仓盈亏通知
@@ -126,18 +135,4 @@ struct TempStruct
 	{
 		free(str);
 	}
-};
-
-struct MyStringOut
-{
-	const char* str;
-
-	int errcode;
-
-	const char* errinfo;
-
-	explicit inline MyStringOut()
-		: str("111")
-		, errcode(1)
-		, errinfo("error") {}
 };

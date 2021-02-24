@@ -3,7 +3,7 @@
 #include "pch.h"
 #include <string>
 
-class MyTestApi
+class MyApi
 {
 private:
 	TapQuoteAPIEvent OnEvent{ nullptr };
@@ -29,6 +29,13 @@ public:
 		d->PositionStreamId = data->PositionStreamId;
 		strcpy_s(d->PositionNo, data->PositionNo);
 		OnEvent(EventType::Test2, 0, APIYNFLAG_YES, d);
+	}
+
+	void Test3() {
+		TapAPIPositionProfit tp;
+		tp.PositionNo = "googogo123";
+		tp.PositionProfit = 100.15;
+		OnEvent(EventType::Test3, 0, APIYNFLAG_YES, &tp);
 	}
 };
 

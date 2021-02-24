@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Interop.h"
 #include <string>
+#include "MyApi_Extern.h"
 
 using namespace std;
 

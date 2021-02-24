@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace InteropSample
+namespace InteropSample.MyApi
 {
     /// <summary>
     /// 客户持仓盈亏通知

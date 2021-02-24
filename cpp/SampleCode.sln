@@ -8,6 +8,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InteropTest", "InteropTest\InteropTest.vcxproj", "{8F040D4E-3050-4D7B-8ECF-1E849BE8E377}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteropSample", "InteropSample\InteropSample.csproj", "{64E53496-6928-41F2-B05D-D3422145AB01}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8F040D4E-3050-4D7B-8ECF-1E849BE8E377} = {8F040D4E-3050-4D7B-8ECF-1E849BE8E377}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

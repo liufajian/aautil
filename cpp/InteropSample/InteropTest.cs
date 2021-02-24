@@ -8,41 +8,14 @@ namespace InteropSample
     {
         public InteropTest()
         {
-            DLLHelper.EnsureDLL();
+            //DLLHelper.EnsureDLL();
         }
 
         public InteropTest Test()
         {
             Console.WriteLine("GetVersion:" + GetVersion());
 
-            var ptr = Interop.TestTapAPIPositionProfitNotice();
-
-            if (ptr != IntPtr.Zero)
-            {
-                var ttt = Marshal.PtrToStructure<TapAPIPositionProfitNotice>(ptr);
-                Console.WriteLine(ttt);
-            }
-            else
-            {
-                Console.WriteLine("TestTapAPIPositionProfitNotice get null");
-            }
-
             TestArray();
-
-            return this;
-        }
-
-        public InteropTest TestStringInOut()
-        {
-            var ptr = Interop.TestStringInOut("错误");
-            var str = Marshal.PtrToStructure<MyStringOut>(ptr);
-            Console.WriteLine("TestStringInOut:" + str);
-            return this;
-        }
-
-        public InteropTest TestAPI()
-        {
-            new MyApiTest().Test();
 
             return this;
         }
@@ -57,10 +30,8 @@ namespace InteropSample
         private static void TestArray()
         {
             // C++ will return its TempStruct array in ptr
-            IntPtr ptr;
-            int size;
 
-            Interop.GetArrResult(out ptr, out size);
+            Interop.GetArrResult(out var ptr, out var size);
 
             TempStruct[] someData2 = new TempStruct[size];
 
@@ -90,21 +61,6 @@ namespace InteropSample
             {
                 return $"[TempStruct]str:{str},num:{num}";
             }
-        }
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public class MyStringOut
-    {
-        public string str;
-
-        public int errcode;
-
-        public string errinfo;
-
-        public override string ToString()
-        {
-            return $"str: {str}, errcode: {errcode}, errinfo: {errinfo}";
         }
     }
 }

@@ -129,6 +129,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy  "$(TargetDir)InteropTest.dll" "$(SolutionDir)InteropSample\bin\Debug"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -151,7 +154,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interop.h" />
-    <ClInclude Include="MyTestApi.h" />
+    <ClInclude Include="MyApi.h" />
+    <ClInclude Include="MyApi_Extern.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

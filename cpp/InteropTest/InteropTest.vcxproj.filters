@@ -26,7 +26,10 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MyTestApi.h">
+    <ClInclude Include="MyApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyApi_Extern.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
