@@ -7,4 +7,8 @@
     <AssemblyName>AAUtil</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="System.Text\" />
+  </ItemGroup>
+
 </Project>
