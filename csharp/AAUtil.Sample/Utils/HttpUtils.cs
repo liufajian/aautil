@@ -110,3 +110,5 @@ namespace AAUtil.Sample.Utils
         }
     }
 }
+
+//https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-send-data-using-the-webrequest-class
